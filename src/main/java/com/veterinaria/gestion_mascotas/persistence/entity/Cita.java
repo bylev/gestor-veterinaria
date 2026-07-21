@@ -21,7 +21,6 @@ public class Cita {
 
     private String motivo;
 
-    @Column(length = 500)
     private String descripcion;
 
     private String estado;
