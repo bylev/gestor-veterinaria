@@ -20,7 +20,7 @@ public class Tutor {
     //RELACIONES
 
     @OneToMany
-    @JoinColumn(name="id_mascota", insertable = false, updatable = false)
+    @JoinColumn(name="id_mascota")
     private List<Mascota> mascotas;
 
 

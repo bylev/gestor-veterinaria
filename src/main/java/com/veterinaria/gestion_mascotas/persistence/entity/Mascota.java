@@ -11,7 +11,7 @@ import java.util.List;
 public class Mascota {
     @Id
 
-    private String id;
+    private String idMascota;
     private String nombre;
     private String raza;
     private String especie;
@@ -19,20 +19,13 @@ public class Mascota {
     private float peso;
     private int edad;
 
-
-    // RELACIONES
-
-    @OneToMany
-    @JoinColumn(name="id_cita")
-    private List<Cita> citas =  new ArrayList<>();
-
     // Getter and Setter
-    public String getId() {
-        return id;
+    public String getIdMascota() {
+        return idMascota;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdMascota(String id) {
+        this.idMascota = id;
     }
 
     public String getNombre() {
