@@ -21,6 +21,10 @@ public class Mascota {
     private float peso;
     private int edad;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_mascota")
+    private List<Cita> citas = new ArrayList<>();
+
     // Getter and Setter
     public Integer getIdMascota() {
         return idMascota;

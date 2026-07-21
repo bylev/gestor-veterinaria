@@ -29,8 +29,9 @@ public class Cita {
     // RELACIONES
 
     @ManyToOne
-    @JoinColumn(name="id_mascota")
+    @JoinColumn(name = "id_mascota", insertable = false, updatable = false)
     private Mascota mascota;
+
 
     @ManyToOne
     @JoinColumn(name="id_veterinario")

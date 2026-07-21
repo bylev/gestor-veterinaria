@@ -21,7 +21,7 @@ public class Tutor {
 
     //RELACIONES
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true)
     @JoinColumn(name="id_tutor")
     private List<Mascota> mascotas = new ArrayList<>();
 
