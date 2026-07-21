@@ -25,6 +25,8 @@ public class Cita {
 
     private String estado;
 
+    private String observaciones;
+
     // RELACIONES
 
     @ManyToOne
@@ -98,5 +100,13 @@ public class Cita {
 
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 }

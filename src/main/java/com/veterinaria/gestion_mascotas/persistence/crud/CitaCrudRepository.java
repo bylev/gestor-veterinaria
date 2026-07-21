@@ -16,5 +16,5 @@ public interface CitaCrudRepository extends CrudRepository<Cita, Integer> {
     List<Cita> findByMascotaIdMascota(Integer idMascota);
     List<Cita> findByFechaBetween(LocalDateTime  inicio, LocalDateTime fin);
     List<Cita> findByFechaAfter(LocalDateTime fecha);
-
+    List<Cita> findByObservacionesContains(String observaciones);
 }
