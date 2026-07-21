@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class Veterinario {
     @Id
     @Column(name="id_veterinario")
-    private String idVeterinario;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer idVeterinario;
 
     private String nombre;
     private String apellido;
@@ -16,11 +17,11 @@ public class Veterinario {
     private String especialidad;
 
 
-    public String getIdVeterinario() {
+    public Integer getIdVeterinario() {
         return idVeterinario;
     }
 
-    public void setIdVeterinario(String idVeterinario) {
+    public void setIdVeterinario(Integer idVeterinario) {
         this.idVeterinario = idVeterinario;
     }
 

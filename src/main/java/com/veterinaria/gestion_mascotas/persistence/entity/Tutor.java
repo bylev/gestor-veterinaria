@@ -10,7 +10,8 @@ import java.util.List;
 public class Tutor {
     @Id
     @Column(name="id_tutor")
-    private String idTutor;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer idTutor;
 
     private String nombre;
     private String apellido;
@@ -27,11 +28,11 @@ public class Tutor {
 
     // GETTERS AND SETTERS
 
-    public String getIdTutor() {
+    public Integer getIdTutor() {
         return idTutor;
     }
 
-    public void setIdTutor(String idTutor) {
+    public void setIdTutor(Integer idTutor) {
         this.idTutor = idTutor;
     }
 

@@ -10,8 +10,10 @@ import java.util.List;
 
 public class Mascota {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_mascota")
+    private Integer idMascota;
 
-    private String idMascota;
     private String nombre;
     private String raza;
     private String especie;
@@ -20,11 +22,11 @@ public class Mascota {
     private int edad;
 
     // Getter and Setter
-    public String getIdMascota() {
+    public Integer getIdMascota() {
         return idMascota;
     }
 
-    public void setIdMascota(String id) {
+    public void setIdMascota(Integer id) {
         this.idMascota = id;
     }
 

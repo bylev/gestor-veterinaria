@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 @Table(name= "citas")
 public class Cita {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_cita")
-    private String idCita;
+    private Integer idCita;
 
 
     private LocalDateTime fecha;
@@ -35,11 +36,11 @@ public class Cita {
     @JoinColumn(name="id_veterinario")
     private Veterinario veterinario;
 
-    public String getIdCita() {
+    public Integer getIdCita() {
         return idCita;
     }
 
-    public void setIdCita(String idCita) {
+    public void setIdCita(Integer idCita) {
         this.idCita = idCita;
     }
 
