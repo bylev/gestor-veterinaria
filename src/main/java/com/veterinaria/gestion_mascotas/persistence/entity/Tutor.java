@@ -2,6 +2,7 @@ package com.veterinaria.gestion_mascotas.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,8 +21,8 @@ public class Tutor {
     //RELACIONES
 
     @OneToMany
-    @JoinColumn(name="id_mascota")
-    private List<Mascota> mascotas;
+    @JoinColumn(name="id_tutor")
+    private List<Mascota> mascotas = new ArrayList<>();
 
 
     // GETTERS AND SETTERS

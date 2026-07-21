@@ -33,7 +33,6 @@ out/
 application-local.yml
 application-local.properties
 *.properties
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

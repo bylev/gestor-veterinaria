@@ -2,9 +2,6 @@ package com.veterinaria.gestion_mascotas.persistence.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name="veterinarios")
 public class Veterinario {
@@ -18,11 +15,6 @@ public class Veterinario {
     private String numLicencia;
     private String especialidad;
 
-    // Relaciones
-
-    @OneToMany
-    @JoinColumn(name="id_cita")
-    private List<Cita> citas = new ArrayList<Cita>();
 
     public String getIdVeterinario() {
         return idVeterinario;
@@ -64,11 +56,4 @@ public class Veterinario {
         this.especialidad = especialidad;
     }
 
-    public List<Cita> getCitas() {
-        return citas;
-    }
-
-    public void setCitas(List<Cita> citas) {
-        this.citas = citas;
-    }
 }

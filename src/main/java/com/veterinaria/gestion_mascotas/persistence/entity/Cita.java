@@ -2,7 +2,6 @@ package com.veterinaria.gestion_mascotas.persistence.entity;
 
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDateTime;
 
@@ -13,10 +12,17 @@ public class Cita {
     @Column(name="id_cita")
     private String idCita;
 
+
+    private LocalDateTime fecha;
+
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro = LocalDateTime.now();
 
     private String motivo;
+
+    @Column(length = 500)
+    private String descripcion;
+
     private String estado;
 
     // RELACIONES
@@ -35,6 +41,22 @@ public class Cita {
 
     public void setIdCita(String idCita) {
         this.idCita = idCita;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public LocalDateTime getFechaRegistro() {
