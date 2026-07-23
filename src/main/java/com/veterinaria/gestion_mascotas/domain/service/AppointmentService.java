@@ -29,10 +29,10 @@ public class AppointmentService {
         return  appointmentRepository.save(appointment);
     }
 
-    public boolean delete(int appointmentId){
+    public boolean delete(Integer citaId){
         //Verificar que exista
-        if (getCitaById(appointmentId).isPresent()){
-            appointmentRepository.delete(appointmentId);
+        if (getCitaById(citaId).isPresent()){
+            appointmentRepository.delete(citaId);
             return true;
         }
         return false;
