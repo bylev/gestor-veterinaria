@@ -5,7 +5,7 @@ import com.veterinaria.gestion_mascotas.domain.model.Pet;
 import java.util.List;
 import java.util.Optional;
 
-public interface MascotaRepository {
+public interface PetRepository {
     List<Pet> getAll();
     Optional<Pet> getById(Integer mascotaId);
     List<Pet> getByName(String nombre);
