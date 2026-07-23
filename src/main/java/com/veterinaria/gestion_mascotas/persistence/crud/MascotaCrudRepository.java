@@ -12,5 +12,6 @@ public interface MascotaCrudRepository extends CrudRepository<Mascota, Integer>
     List<Mascota> findByEdadGreaterThanOrderByEdadDesc(Integer edad);
     List<Mascota> findByPesoBetween(Float min, Float max);
     List<Mascota> findByNombreContainingIgnoreCase(String nombre);
+    List<Mascota> findByEdad(Integer edad);
     List<Mascota> findByEdadLessThan(Integer edad);
 }

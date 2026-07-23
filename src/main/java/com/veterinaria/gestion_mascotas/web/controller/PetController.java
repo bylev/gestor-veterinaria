@@ -26,12 +26,12 @@ public class PetController {
         return petService.getById(id);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public List<Pet> getByName(@PathVariable String name) {
         return petService.getByName(name);
     }
 
-    @GetMapping("/{edad}")
+    @GetMapping("/age/{edad}")
     public List<Pet> getByEdad(@PathVariable Integer edad) {
         return petService.getByEdad(edad);
     }

@@ -39,7 +39,7 @@ public class MascotaRepository implements PetRepository {
 
     @Override
     public List<Pet> getByEdad(int edad) {
-        return mapper.toPets(mascotaCrudRepository.findByEdadLessThan(edad));
+        return mapper.toPets(mascotaCrudRepository.findByEdad(edad));
     }
 
     @Override
