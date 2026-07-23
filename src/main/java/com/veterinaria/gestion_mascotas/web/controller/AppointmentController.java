@@ -25,12 +25,12 @@ public class AppointmentController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Appointment> getCitaById(@PathVariable Integer citaId){
+    public Optional<Appointment> getCitaById(@PathVariable("id") Integer citaId){
         return appointmentService.getCitaById(citaId);
     }
 
     @GetMapping("/Appointment/{mascota_id}")
-    public List<Appointment> getById(@PathVariable Integer mascotaId){
+    public List<Appointment> getById(@PathVariable("mascota_id") Integer mascotaId){
         return appointmentService.getById(mascotaId);
     }
 
