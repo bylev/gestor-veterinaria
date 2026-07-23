@@ -2,7 +2,6 @@ package com.veterinaria.gestion_mascotas.domain.model;
 
 public class Vet {
     private Integer vetId;
-    private Integer citaId;
     private String nombre;
     private String apellido;
     private String numLicencia;
@@ -14,14 +13,6 @@ public class Vet {
 
     public void setVetId(Integer vetId) {
         this.vetId = vetId;
-    }
-
-    public Integer getCitaId() {
-        return citaId;
-    }
-
-    public void setCitaId(Integer citaId) {
-        this.citaId = citaId;
     }
 
     public String getNombre() {

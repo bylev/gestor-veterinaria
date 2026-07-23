@@ -13,8 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface VetMapper {
     @Mappings({
-            @Mapping(source="idVeterinario", target= "vetId"),
-            @Mapping(target="citaId", ignore = true)
+            @Mapping(source="idVeterinario", target= "vetId")
     })
 
     Vet toVet(Veterinario veterinario);
