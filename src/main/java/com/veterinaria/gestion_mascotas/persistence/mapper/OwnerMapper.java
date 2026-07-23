@@ -23,5 +23,5 @@ public interface OwnerMapper {
     @Mapping(target="mascotas", ignore = true)
     Tutor toTutor(Owner  owner);
 
-    List<Tutor>  toOwners(List<Tutor> tutors);
+    List<Owner> toOwners(List<Tutor> tutors);
 }
