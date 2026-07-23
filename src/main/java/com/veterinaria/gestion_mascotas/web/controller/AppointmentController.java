@@ -2,7 +2,6 @@ package com.veterinaria.gestion_mascotas.web.controller;
 
 
 import com.veterinaria.gestion_mascotas.domain.model.Appointment;
-import com.veterinaria.gestion_mascotas.domain.repository.AppointmentRepository;
 import com.veterinaria.gestion_mascotas.domain.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,6 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentService appointmentService;
-    @Autowired
-    private AppointmentRepository appointmentRepository;
 
     @GetMapping("")
     public List<Appointment> getAll(){
@@ -29,19 +26,18 @@ public class AppointmentController {
         return appointmentService.getCitaById(citaId);
     }
 
-    @GetMapping("/Appointment/{mascota_id}")
-    public List<Appointment> getById(@PathVariable("mascota_id") Integer mascotaId){
-        return appointmentService.getById(mascotaId);
+    @GetMapping("/pet/{mascotaId}")
+    public List<Appointment> getByMascotaId(@PathVariable Integer mascotaId){
+        return appointmentService.getByMascotaId(mascotaId);
     }
 
     @PostMapping
     public Appointment save(@RequestBody Appointment appointment){
-        return appointmentRepository.save(appointment);
+        return appointmentService.save(appointment);
     }
 
-    @PostMapping("/{id}")
-    public Appointment delete(@PathVariable("id") Integer citaId){
-        appointmentService.delete(citaId);
-        return null;
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") Integer citaId){
+        return appointmentService.delete(citaId);
     }
 }

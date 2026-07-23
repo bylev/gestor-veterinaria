@@ -2,7 +2,6 @@ package com.veterinaria.gestion_mascotas.web.controller;
 
 
 import com.veterinaria.gestion_mascotas.domain.model.Vet;
-import com.veterinaria.gestion_mascotas.domain.repository.VetRepository;
 import com.veterinaria.gestion_mascotas.domain.service.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,6 @@ public class VetController {
 
     @Autowired
     private VetService vetService;
-    @Autowired
-    private VetRepository vetRepository;
 
     @GetMapping("")
     public List<Vet> getAll(){return vetService.getAll();}
@@ -26,14 +23,14 @@ public class VetController {
     public Optional<Vet> getById(@PathVariable("id") Integer vetId){
         return  vetService.getById(vetId);
     }
-    @GetMapping("/vet/{numLicense}")
+    @GetMapping("/license/{numLicense}")
     public Optional<Vet> getByLicenseNumber(@PathVariable String numLicense){
-        return vetRepository.getByLicenseNumber(numLicense);
+        return vetService.getByLicenseNumber(numLicense);
     }
 
-    @GetMapping("/vet/{specialty}")
+    @GetMapping("/specialty/{specialty}")
     public List<Vet> getBySpecialty(@PathVariable String specialty){
-        return  vetRepository.getBySpecialty(specialty);
+        return  vetService.getBySpecialty(specialty);
     }
 
     @PostMapping
@@ -41,9 +38,8 @@ public class VetController {
         return vetService.save(vet);
     }
 
-    @PostMapping("/{id}")
-    public Vet delete(@PathVariable("id") Integer vetId){
-        vetService.delete(vetId);
-        return null;
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") Integer vetId){
+        return vetService.delete(vetId);
     }
 }

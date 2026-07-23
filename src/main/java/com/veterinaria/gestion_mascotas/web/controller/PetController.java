@@ -1,7 +1,6 @@
 package com.veterinaria.gestion_mascotas.web.controller;
 
 import com.veterinaria.gestion_mascotas.domain.model.Pet;
-import com.veterinaria.gestion_mascotas.domain.repository.PetRepository;
 import com.veterinaria.gestion_mascotas.domain.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,6 @@ public class PetController {
 
     @Autowired
     private PetService petService;
-    @Autowired
-    private PetRepository petRepository;
 
     @GetMapping("")
     public List<Pet> getAll() {
@@ -29,12 +26,12 @@ public class PetController {
         return petService.getById(id);
     }
 
-    @GetMapping("/pet/{name}")
+    @GetMapping("/name/{name}")
     public List<Pet> getByName(@PathVariable String name) {
         return petService.getByName(name);
     }
 
-    @GetMapping("/pet/{edad}")
+    @GetMapping("/age/{edad}")
     public List<Pet> getByEdad(@PathVariable Integer edad) {
         return petService.getByEdad(edad);
     }
@@ -44,10 +41,9 @@ public class PetController {
         return petService.save(pet);
     }
 
-    @PostMapping("/{id}")
-    public Pet delete(@PathVariable("id") Integer mascotaId) {
-        petService.delete(mascotaId);
-        return null;
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") Integer mascotaId) {
+        return petService.delete(mascotaId);
     }
 
 }
