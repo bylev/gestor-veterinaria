@@ -22,6 +22,7 @@ Desacoplar la estructura de la base de datos de la logica de negocio mediante mo
 ```text
 src/main/java/com/veterinaria/gestion_mascotas
 ├── domain
+│   ├── model
 │   ├── repository
 │   └── service
 └── persistence
@@ -32,7 +33,7 @@ src/main/java/com/veterinaria/gestion_mascotas
 
 ## ── ★ Dominio
 
-Las clases del dominio están en `domain.service` y no contienen anotaciones de JPA.
+Las clases del modelo de dominio están en `domain.model` y no contienen anotaciones de JPA.
 
 Modelos actuales:
 
@@ -112,5 +113,4 @@ MapStruct genera las implementaciones en:
 ```text
 build/generated/sources/annotationProcessor/java/main
 ```
-
 
