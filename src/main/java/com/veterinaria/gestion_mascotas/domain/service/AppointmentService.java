@@ -17,7 +17,7 @@ public class AppointmentService {
         return appointmentRepository.getAll();
     }
 
-    public List<Appointment> getById(Integer mascotaId){
+    public List<Appointment> getByMascotaId(Integer mascotaId){
         return appointmentRepository.getByMascotaId(mascotaId);
     }
 

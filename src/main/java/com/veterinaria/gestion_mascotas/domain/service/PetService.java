@@ -13,9 +13,6 @@ import java.util.Optional;
 public class PetService {
     @Autowired
     private PetRepository petRepository;
-    @Autowired
-    private AppointmentService appointmentService;
-
     public List<Pet> getAll(){
         return  petRepository.getAll();
     }
@@ -38,7 +35,7 @@ public class PetService {
 
     public boolean delete(Integer mascotaId){
         if(getById(mascotaId).isPresent()){
-            appointmentService.delete(mascotaId);
+            petRepository.delete(mascotaId);
             return true;
         }
         return false;

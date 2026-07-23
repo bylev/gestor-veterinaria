@@ -11,14 +11,14 @@ import java.util.Optional;
 @Service
 public class OwnerService {
     @Autowired
-    OwnerRepository ownerRepository;
+    private OwnerRepository ownerRepository;
 
     public List<Owner> getAll(){
         return ownerRepository.getAll();
     }
 
-    public Optional<Owner> getById(Integer mascotaId) {
-        return ownerRepository.getById(mascotaId);
+    public Optional<Owner> getById(Integer ownerId) {
+        return ownerRepository.getById(ownerId);
     }
 
     public List<Owner> getByName(String name){

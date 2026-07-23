@@ -30,7 +30,7 @@ public class Cita {
     // RELACIONES
 
     @ManyToOne
-    @JoinColumn(name = "id_mascota", insertable = false, updatable = false)
+    @JoinColumn(name = "id_mascota")
     private Mascota mascota;
 
 
