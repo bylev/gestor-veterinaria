@@ -24,22 +24,22 @@ public class OwnerController {
         return ownerService.getById(id);
     }
 
-    @GetMapping("/pet/{mascotaId}")
+    @GetMapping("/{mascotaId}")
     public List<Owner> getByMascotaId(@PathVariable Integer mascotaId){
         return ownerService.getByMascotaId(mascotaId);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/owner/{name}")
     public List<Owner> getByName(@PathVariable String name){
         return ownerService.getByName(name);
     }
 
-    @GetMapping("/lastname/{lastName}")
+    @GetMapping("/{lastName}")
     public List<Owner> getByLastName(@PathVariable String lastName){
         return ownerService.getByLastName(lastName);
     }
 
-    @GetMapping("/email/{email}")
+    @GetMapping("/{email}")
     public Optional<Owner> getByEmail(@PathVariable String email){
         return ownerService.getByEmail(email);
     }

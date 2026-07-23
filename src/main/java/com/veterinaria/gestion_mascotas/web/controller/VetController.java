@@ -23,12 +23,12 @@ public class VetController {
     public Optional<Vet> getById(@PathVariable("id") Integer vetId){
         return  vetService.getById(vetId);
     }
-    @GetMapping("/license/{numLicense}")
+    @GetMapping("/{numLicense}")
     public Optional<Vet> getByLicenseNumber(@PathVariable String numLicense){
         return vetService.getByLicenseNumber(numLicense);
     }
 
-    @GetMapping("/specialty/{specialty}")
+    @GetMapping("/{specialty}")
     public List<Vet> getBySpecialty(@PathVariable String specialty){
         return  vetService.getBySpecialty(specialty);
     }

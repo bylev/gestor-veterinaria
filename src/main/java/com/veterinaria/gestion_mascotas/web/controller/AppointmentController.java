@@ -26,7 +26,7 @@ public class AppointmentController {
         return appointmentService.getCitaById(citaId);
     }
 
-    @GetMapping("/pet/{mascotaId}")
+    @GetMapping("/{mascotaId}")
     public List<Appointment> getByMascotaId(@PathVariable Integer mascotaId){
         return appointmentService.getByMascotaId(mascotaId);
     }
