@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface AppointmentRepository {
     List<Appointment> getAll();
-    Optional<Appointment> getById(Integer citaId);
+    Optional<Appointment> getCitaById(Integer citaId);
     List<Appointment> getByMascotaId(Integer mascotaId);
     Appointment save(Appointment appointment);
     void delete(Integer citaId);
