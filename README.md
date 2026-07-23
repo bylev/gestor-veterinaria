@@ -2,6 +2,7 @@
 <img src="images/logo2.png" width = "150" style="border-radius: 15%" align="center" hspace="20" height="150">
 
 <h1><i> Veterinaria API ── Spring Boot ౨ৎ⋆˚｡⋆ </i></h1>
+<h3><small> by: Michelle Cámara </small></h3>
 </div>
 
 ## ── ꩜ Objetivo 
