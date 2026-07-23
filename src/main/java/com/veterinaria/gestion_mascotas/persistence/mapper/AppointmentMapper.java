@@ -1,6 +1,6 @@
 package com.veterinaria.gestion_mascotas.persistence.mapper;
 
-import com.veterinaria.gestion_mascotas.domain.service.Appointment;
+import com.veterinaria.gestion_mascotas.domain.model.Appointment;
 import com.veterinaria.gestion_mascotas.persistence.entity.Cita;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

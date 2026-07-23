@@ -1,7 +1,7 @@
 package com.veterinaria.gestion_mascotas.persistence.mapper;
 
 
-import com.veterinaria.gestion_mascotas.domain.service.Owner;
+import com.veterinaria.gestion_mascotas.domain.model.Owner;
 import com.veterinaria.gestion_mascotas.persistence.entity.Tutor;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

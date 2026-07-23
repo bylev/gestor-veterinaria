@@ -1,4 +1,4 @@
-package com.veterinaria.gestion_mascotas.domain.service;
+package com.veterinaria.gestion_mascotas.domain.model;
 
 import java.time.LocalDateTime;
 

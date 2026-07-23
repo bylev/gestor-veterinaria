@@ -1,6 +1,6 @@
 package com.veterinaria.gestion_mascotas.domain.repository;
 
-import com.veterinaria.gestion_mascotas.domain.service.Owner;
+import com.veterinaria.gestion_mascotas.domain.model.Owner;
 
 import java.util.List;
 import java.util.Optional;
