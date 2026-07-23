@@ -236,11 +236,11 @@ Ejemplo para crear un veterinario:
 ### Appointments
 
 ```text
-GET    /Appointment
-GET    /Appointment/{id}
-GET    /Appointment/pet/{mascotaId}
-POST   /Appointment
-DELETE /Appointment/{id}
+GET    /appointment
+GET    /appointment/{id}
+GET    /appointment/pet/{mascotaId}
+POST   /appointment
+DELETE /appointment/{id}
 ```
 
 Ejemplo para crear una cita:
@@ -300,4 +300,3 @@ MapStruct genera las implementaciones en:
 ```text
 build/generated/sources/annotationProcessor/java/main
 ```
-
