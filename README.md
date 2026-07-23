@@ -1,7 +1,7 @@
 <div align="center">
-<img src="images/logo_vet.png" width = "150" style="border-radius: 15%" align="center" hspace="20" height="150">
+<img src="images/logo2.png" width = "150" style="border-radius: 15%" align="center" hspace="20" height="150">
 
-<h1><i> Veterinaria API ── Spring Boot <3 </i></h1>
+<h1><i> Veterinaria API ── Spring Boot ౨ৎ⋆˚｡⋆ </i></h1>
 </div>
 
 ## ── ꩜ Objetivo 
