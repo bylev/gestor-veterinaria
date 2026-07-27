@@ -254,7 +254,9 @@ Ejemplo para crear un veterinario:
 GET    /appointment
 GET    /appointment/{id}
 GET    /appointment/pet/{mascotaId}
+GET    /appointment/status/{estado}
 POST   /appointment
+PATCH  /appointment/{id}/status/{estado}
 DELETE /appointment/{id}
 ```
 
@@ -268,6 +270,34 @@ Ejemplo para crear una cita:
   "motivo": "Diarrea",
   "descripcion": "Perro chihuahua con diarrea",
   "estado": "activo",
+  "observaciones": "Es un perro muy desobediente"
+}
+```
+
+Ejemplo para buscar citas por estado:
+
+```text
+GET /appointment/status/activo
+```
+
+Ejemplo para actualizar solo el estado de una cita:
+
+```text
+PATCH /appointment/1/status/cancelada
+```
+
+La respuesta devuelve la cita actualizada:
+
+```json
+{
+  "citaId": 1,
+  "mascotaId": 1,
+  "veterinarioId": 1,
+  "fecha": "2026-07-23T18:13:59",
+  "fechaRegistro": "2026-07-23T18:13:59",
+  "motivo": "Diarrea",
+  "descripcion": "Perro chihuahua con diarrea",
+  "estado": "cancelada",
   "observaciones": "Es un perro muy desobediente"
 }
 ```
