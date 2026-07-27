@@ -21,6 +21,10 @@ public class Mascota {
     private float peso;
     private int edad;
 
+    @ManyToOne
+    @JoinColumn(name = "id_tutor")
+    private Tutor tutor;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_mascota")
     private List<Cita> citas = new ArrayList<>();
@@ -80,5 +84,13 @@ public class Mascota {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
     }
 }

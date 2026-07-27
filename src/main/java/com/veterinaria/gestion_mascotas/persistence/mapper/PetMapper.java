@@ -13,12 +13,14 @@ import java.util.List;
 public interface PetMapper {
 
     @Mappings({
-            @Mapping(source = "idMascota", target = "mascotaId")
+            @Mapping(source = "idMascota", target = "mascotaId"),
+            @Mapping(source = "tutor.idTutor", target = "ownerId")
     })
     Pet toPet(Mascota mascota);
 
     List<Pet> toPets(List<Mascota> mascotas);
 
     @InheritInverseConfiguration
+    @Mapping(target = "tutor", ignore = true)
     Mascota toMascota(Pet pet);
 }

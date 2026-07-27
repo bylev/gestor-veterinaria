@@ -4,6 +4,7 @@ import com.veterinaria.gestion_mascotas.domain.model.Pet;
 import com.veterinaria.gestion_mascotas.domain.repository.PetRepository;
 import com.veterinaria.gestion_mascotas.persistence.crud.MascotaCrudRepository;
 import com.veterinaria.gestion_mascotas.persistence.entity.Mascota;
+import com.veterinaria.gestion_mascotas.persistence.entity.Tutor;
 import com.veterinaria.gestion_mascotas.persistence.mapper.PetMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -44,7 +45,15 @@ public class MascotaRepository implements PetRepository {
 
     @Override
     public Pet save(Pet pet) {
-        return mapper.toPet(mascotaCrudRepository.save(mapper.toMascota(pet)));
+        Mascota mascota = mapper.toMascota(pet);
+
+        if (pet.getOwnerId() != null) {
+            Tutor tutor = new Tutor();
+            tutor.setIdTutor(pet.getOwnerId());
+            mascota.setTutor(tutor);
+        }
+
+        return mapper.toPet(mascotaCrudRepository.save(mascota));
     }
 
     @Override

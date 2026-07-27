@@ -177,6 +177,7 @@ Ejemplo para crear una mascota:
 
 ```json
 {
+  "ownerId": 1,
   "nombre": "Remi",
   "raza": "Chihuahua",
   "especie": "Perro",
@@ -203,6 +204,20 @@ Ejemplo para crear un tutor:
 
 ```json
 {
+  "nombre": "Juan",
+  "apellido": "Flores",
+  "email": "owner@mail.com",
+  "direccion": "Calle 123",
+  "telefono": "5551234567"
+}
+```
+
+Al consultar tutores, la respuesta incluye `mascotaIds` con las mascotas relacionadas:
+
+```json
+{
+  "ownerId": 1,
+  "mascotaIds": [1, 2],
   "nombre": "Juan",
   "apellido": "Flores",
   "email": "owner@mail.com",

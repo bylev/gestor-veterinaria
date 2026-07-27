@@ -2,6 +2,7 @@ package com.veterinaria.gestion_mascotas.domain.model;
 
 public class Pet {
     private Integer mascotaId;
+    private Integer ownerId;
     private String nombre;
     private String raza;
     private String especie;
@@ -15,6 +16,14 @@ public class Pet {
 
     public void setMascotaId(Integer mascotaId) {
         this.mascotaId = mascotaId;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getNombre() {

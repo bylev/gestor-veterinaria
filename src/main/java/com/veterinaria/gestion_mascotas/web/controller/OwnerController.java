@@ -23,7 +23,7 @@ public class OwnerController {
     private OwnerService ownerService;
 
     @GetMapping("")
-    @Operation(summary = "Get all owners", description = "Return a list of registered pet owners")
+    @Operation(summary = "Get all owners", description = "Return a list of registered pet owners with their pet IDs")
     @ApiResponse(responseCode = "200", description = "Successful retrieval of owners")
     @ApiResponse(responseCode = "500", description = "Internal server error")
     public ResponseEntity<List<Owner>> getAll() {
@@ -31,7 +31,7 @@ public class OwnerController {
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Get owner by ID", description = "Return an owner by ID if it exists")
+    @Operation(summary = "Get owner by ID", description = "Return an owner by ID with its related pet IDs if it exists")
     @ApiResponse(responseCode = "200", description = "Successful retrieval of owner")
     @ApiResponse(responseCode = "404", description = "Owner not found")
     @ApiResponse(responseCode = "500", description = "Internal server error")

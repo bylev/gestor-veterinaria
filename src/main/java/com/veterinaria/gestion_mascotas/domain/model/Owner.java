@@ -1,8 +1,10 @@
 package com.veterinaria.gestion_mascotas.domain.model;
 
+import java.util.List;
+
 public class Owner {
     private Integer ownerId;
-    private Integer mascotaId;
+    private List<Integer> mascotaIds;
     private String nombre;
     private String apellido;
     private String email;
@@ -17,12 +19,12 @@ public class Owner {
         this.ownerId = ownerId;
     }
 
-    public Integer getMascotaId() {
-        return mascotaId;
+    public List<Integer> getMascotaIds() {
+        return mascotaIds;
     }
 
-    public void setMascotaId(Integer mascotaId) {
-        this.mascotaId = mascotaId;
+    public void setMascotaIds(List<Integer> mascotaIds) {
+        this.mascotaIds = mascotaIds;
     }
 
     public String getNombre() {

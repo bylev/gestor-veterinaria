@@ -70,6 +70,7 @@ public class PetController {
                             name = "Example pet",
                             value = """
                                     {
+                                        "ownerId": 1,
                                         "nombre": "Remi",
                                         "raza": "Chihuahua",
                                         "especie": "Perro",
