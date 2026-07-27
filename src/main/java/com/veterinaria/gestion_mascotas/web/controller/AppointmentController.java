@@ -92,4 +92,18 @@ public class AppointmentController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/status/{estado}")
+    public ResponseEntity<List<Appointment>> getByEstado(@PathVariable String estado) {
+        return new ResponseEntity<>(appointmentService.getByEstado(estado), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}/status/{estado}")
+    public ResponseEntity<Appointment> updateEstado(
+            @PathVariable("id") Integer citaId,
+            @PathVariable String estado) {
+        return appointmentService.updateEstado(citaId, estado)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
