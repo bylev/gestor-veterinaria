@@ -10,5 +10,4 @@ public interface TutorCrudRepository extends CrudRepository<Tutor, Integer> {
     List<Tutor> findByNombre(String nombre);
     List<Tutor> findByEmail(String email);
     List<Tutor> findByMascotasIdMascota(Integer idMascota);
-    List<Tutor> findByMascotasNombreContainingIgnoreCase(String nombreMascota);
 }
