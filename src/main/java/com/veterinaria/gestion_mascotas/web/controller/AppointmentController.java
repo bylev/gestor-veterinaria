@@ -94,13 +94,31 @@ public class AppointmentController {
     }
 
     @GetMapping("/status/{estado}")
-    public ResponseEntity<List<Appointment>> getByEstado(@PathVariable String estado) {
+    @Operation(
+            summary = "Get appointments by status",
+            description = "Return appointments matching the provided status"
+    )
+    @ApiResponse(responseCode = "200", description = "Successful retrieval of appointments")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
+    public ResponseEntity<List<Appointment>> getByEstado(
+            @Parameter(description = "Status of the appointments to search", example = "activo", required = true)
+            @PathVariable String estado) {
         return new ResponseEntity<>(appointmentService.getByEstado(estado), HttpStatus.OK);
     }
 
     @PatchMapping("/{id}/status/{estado}")
+    @Operation(
+            summary = "Update appointment status",
+            description = "Update only the status of an appointment if it exists"
+    )
+    @ApiResponse(responseCode = "200", description = "Successful update of appointment status")
+    @ApiResponse(responseCode = "404", description = "Appointment not found")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
     public ResponseEntity<Appointment> updateEstado(
+            @Parameter(description = "ID of the appointment to update", example = "1", required = true)
             @PathVariable("id") Integer citaId,
+
+            @Parameter(description = "New status for the appointment", example = "cancelada", required = true)
             @PathVariable String estado) {
         return appointmentService.updateEstado(citaId, estado)
                 .map(ResponseEntity::ok)
