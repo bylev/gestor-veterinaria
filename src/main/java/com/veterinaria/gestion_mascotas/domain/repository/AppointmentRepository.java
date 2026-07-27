@@ -11,4 +11,6 @@ public interface AppointmentRepository {
     List<Appointment> getByMascotaId(Integer mascotaId);
     Appointment save(Appointment appointment);
     void delete(Integer citaId);
+    List<Appointment> getByEstado(String estado);
+    Appointment updateEstado(Integer citaId, String estado);
 }
