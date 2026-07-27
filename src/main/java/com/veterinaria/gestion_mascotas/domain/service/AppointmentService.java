@@ -37,4 +37,15 @@ public class AppointmentService {
         }
         return false;
     }
+
+    public List<Appointment> getByEstado(String Estado){
+        return appointmentRepository.getByEstado(Estado);
+    }
+
+    public Optional<Appointment> updateEstado(Integer citaId, String estado) {
+        if (getCitaById(citaId).isPresent()) {
+            return Optional.of(appointmentRepository.updateEstado(citaId, estado));
+        }
+        return Optional.empty();
+    }
 }
