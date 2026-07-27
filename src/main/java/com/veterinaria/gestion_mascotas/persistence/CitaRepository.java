@@ -62,4 +62,16 @@ public class CitaRepository implements AppointmentRepository {
     public void delete(Integer citaId) {
         citaCrudRepository.deleteById(citaId);
     }
+
+    @Override
+    public List<Appointment> getByEstado(String Estado){
+        return mapper.toAppointmentList(citaCrudRepository.findByEstado(Estado));
+    }
+
+    @Override
+    public Appointment updateEstado(Integer citaId, String estado) {
+        Cita cita = citaCrudRepository.findById(citaId).orElseThrow();
+        cita.setEstado(estado);
+        return mapper.toAppointment(citaCrudRepository.save(cita));
+    }
 }

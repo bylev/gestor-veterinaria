@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface CitaCrudRepository extends CrudRepository<Cita, Integer> {
     List<Cita> findByMascotaIdMascota(Integer idMascota);
+    List<Cita> findByEstado(String Estado);
 }
