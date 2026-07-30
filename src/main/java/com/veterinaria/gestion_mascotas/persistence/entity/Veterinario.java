@@ -15,6 +15,25 @@ public class Veterinario {
     @Column(name="Num_Licencia")
     private String numLicencia;
     private String especialidad;
+    private String contrasena;
+    @Column(unique = true)
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
     public Integer getIdVeterinario() {
         return idVeterinario;

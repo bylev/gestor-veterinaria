@@ -42,6 +42,7 @@ public class CitaRepository implements AppointmentRepository {
     @Override
     public Appointment save(Appointment appointment) {
         Cita cita = mapper.toCita(appointment);
+        cita.setIdCita(null);
 
         if (appointment.getMascotaId() != null) {
             Mascota mascota = new Mascota();

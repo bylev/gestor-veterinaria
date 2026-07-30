@@ -5,6 +5,7 @@ public class Vet {
     private String nombre;
     private String apellido;
     private String numLicencia;
+    private String email;
     private String especialidad;
 
     public Integer getVetId() {
@@ -37,6 +38,14 @@ public class Vet {
 
     public void setNumLicencia(String numLicencia) {
         this.numLicencia = numLicencia;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getEspecialidad() {

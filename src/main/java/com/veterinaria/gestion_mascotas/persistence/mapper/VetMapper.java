@@ -21,5 +21,6 @@ public interface VetMapper {
     List<Vet> toVets(List<Veterinario> veterinarios);
 
     @InheritInverseConfiguration
+    @Mapping(target = "contrasena", ignore = true)
     Veterinario toVeterinario(Vet vet);
 }
