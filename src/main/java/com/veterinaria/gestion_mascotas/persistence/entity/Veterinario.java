@@ -15,7 +15,15 @@ public class Veterinario {
     @Column(name="Num_Licencia")
     private String numLicencia;
     private String especialidad;
+    private String contrasena;
 
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
     public Integer getIdVeterinario() {
         return idVeterinario;
