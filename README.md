@@ -212,6 +212,38 @@ Ejemplo para crear un tutor:
 }
 ```
 
+Ejemplo para crear un tutor con mascotas usando persistencia en cascada:
+
+```json
+{
+  "nombre": "Juan",
+  "apellido": "Flores",
+  "email": "owner@mail.com",
+  "direccion": "Calle 123",
+  "telefono": "5551234567",
+  "mascotas": [
+    {
+      "nombre": "Toby",
+      "raza": "Poodle",
+      "especie": "Perro",
+      "sexo": "Macho",
+      "peso": 6.4,
+      "edad": 3
+    },
+    {
+      "nombre": "Mila",
+      "raza": "Siamés",
+      "especie": "Gato",
+      "sexo": "Hembra",
+      "peso": 3.1,
+      "edad": 2
+    }
+  ]
+}
+```
+
+En este caso `Tutor` funciona como registro maestro y `Mascota` como detalle. Gracias a `cascade = CascadeType.ALL`, al guardar el tutor tambien se guardan automaticamente sus mascotas en la tabla `mascotas`.
+
 Al consultar tutores, la respuesta incluye `mascotaIds` con las mascotas relacionadas:
 
 ```json

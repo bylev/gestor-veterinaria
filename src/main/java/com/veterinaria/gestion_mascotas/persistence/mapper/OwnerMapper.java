@@ -12,17 +12,18 @@ import org.mapstruct.Mappings;
 import java.util.List;
 import java.util.ArrayList;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {PetMapper.class})
 public interface OwnerMapper {
     @Mappings({
             @Mapping(source="idTutor", target ="ownerId"),
+            @Mapping(source = "mascotas", target = "mascotas"),
             @Mapping(target="mascotaIds", expression = "java(getMascotaIds(tutor))")
     })
 
     Owner toOwner(Tutor tutor);
 
     @InheritInverseConfiguration
-    @Mapping(target="mascotas", ignore = true)
+    @Mapping(source = "mascotas", target = "mascotas")
     Tutor toTutor(Owner  owner);
 
     List<Owner> toOwners(List<Tutor> tutors);

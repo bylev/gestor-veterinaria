@@ -5,6 +5,7 @@ import java.util.List;
 public class Owner {
     private Integer ownerId;
     private List<Integer> mascotaIds;
+    private List<Pet> mascotas;
     private String nombre;
     private String apellido;
     private String email;
@@ -25,6 +26,14 @@ public class Owner {
 
     public void setMascotaIds(List<Integer> mascotaIds) {
         this.mascotaIds = mascotaIds;
+    }
+
+    public List<Pet> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(List<Pet> mascotas) {
+        this.mascotas = mascotas;
     }
 
     public String getNombre() {

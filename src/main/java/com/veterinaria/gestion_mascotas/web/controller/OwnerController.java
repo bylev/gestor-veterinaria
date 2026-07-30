@@ -83,24 +83,42 @@ public class OwnerController {
     }
 
     @PostMapping
-    @Operation(summary = "Add a new owner", description = "Register a new owner and return the created owner", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+    @Operation(summary = "Add a new owner", description = "Register a new owner and optionally persist its pets using cascade", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
             required = true,
             content = @Content(
                     examples = @ExampleObject(
-                            name = "Example owner",
+                            name = "Example owner with pets",
                             value = """
                                     {
                                         "nombre": "Juan",
                                         "apellido": "Flores",
                                         "email": "owner@mail.com",
                                         "direccion": "Calle 123",
-                                        "telefono": "5551234567"
+                                        "telefono": "5551234567",
+                                        "mascotas": [
+                                            {
+                                                "nombre": "Toby",
+                                                "raza": "Poodle",
+                                                "especie": "Perro",
+                                                "sexo": "Macho",
+                                                "peso": 6.4,
+                                                "edad": 3
+                                            },
+                                            {
+                                                "nombre": "Mila",
+                                                "raza": "Siamés",
+                                                "especie": "Gato",
+                                                "sexo": "Hembra",
+                                                "peso": 3.1,
+                                                "edad": 2
+                                            }
+                                        ]
                                     }
                                     """
                     )
             )
     ))
-    @ApiResponse(responseCode = "201", description = "Successful creation of owner")
+    @ApiResponse(responseCode = "201", description = "Successful creation of owner and related pets")
     @ApiResponse(responseCode = "400", description = "Invalid owner data")
     @ApiResponse(responseCode = "500", description = "Internal server error")
     public ResponseEntity<Owner> save(@RequestBody Owner owner) {
