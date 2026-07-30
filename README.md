@@ -47,6 +47,11 @@ Modelos actuales:
 - `Vet`
 - `Appointment`
 
+`Owner` contiene dos datos relacionados con mascotas:
+
+- `mascotas`: lista de mascotas que puede recibirse al crear un tutor con cascade.
+- `mascotaIds`: lista de IDs que se devuelve al consultar tutores.
+
 ## ── ★ Repositorios de dominio
 
 Las interfaces de repositorio estan en `domain.repository` y trabajan con modelos de dominio, no con entidades JPA.
@@ -134,6 +139,14 @@ Ejemplo:
 ```
 
 Cuando se convierte de dominio a entidad, se usa `@InheritInverseConfiguration` para reutilizar el mapeo en sentido inverso.
+
+En el caso de `Owner`, el mapper convierte los datos normales y tambien permite convertir:
+
+```text
+Owner.mascotas -> Tutor.mascotas
+```
+
+Para mantener el codigo mas claro, `mascotaIds` no se llena directamente con MapStruct. Se llena manualmente en `TutorRepository`, recorriendo las mascotas del tutor y agregando cada `idMascota` a la lista de respuesta.
 
 ## ── 🌐 Controladores
 
@@ -243,6 +256,22 @@ Ejemplo para crear un tutor con mascotas usando persistencia en cascada:
 ```
 
 En este caso `Tutor` funciona como registro maestro y `Mascota` como detalle. Gracias a `cascade = CascadeType.ALL`, al guardar el tutor tambien se guardan automaticamente sus mascotas en la tabla `mascotas`.
+
+La relacion que permite esto esta en la entidad `Tutor`:
+
+```java
+@OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true)
+@JoinColumn(name="id_tutor")
+private List<Mascota> mascotas = new ArrayList<>();
+```
+
+El endpoint `POST /owner` recibe un `Owner`, el mapper lo convierte a `Tutor`, y `TutorRepository` lo guarda con:
+
+```java
+tutorCrudRepository.save(mapper.toTutor(owner));
+```
+
+Si el tutor trae mascotas, JPA persiste automaticamente esos registros detalle.
 
 Al consultar tutores, la respuesta incluye `mascotaIds` con las mascotas relacionadas:
 
