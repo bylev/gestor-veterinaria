@@ -18,6 +18,8 @@ Desacoplar la estructura de la base de datos de la logica de negocio mediante mo
 - MapStruct
 - Gradle
 - Springdoc OpenAPI / Swagger UI
+- Spring Security
+- JWT
 
 ## ── 📁 Estructura del proyecto
 
@@ -33,7 +35,9 @@ src/main/java/com/veterinaria/gestion_mascotas
 │   ├── entity
 │   └── mapper
 └── web
-    └── controller
+    ├── controller
+    ├── dto
+    └── security
 ```
 
 ## ── ★ Dominio
@@ -158,6 +162,7 @@ Controladores actuales:
 - `OwnerController`
 - `VetController`
 - `AppointmentController`
+- `AuthController`
 
 Los endpoints usan `ResponseEntity` para responder con codigos HTTP como:
 
@@ -172,6 +177,54 @@ Tambien incluyen anotaciones de OpenAPI para documentar Swagger:
 - `@ApiResponse`
 - `@Parameter`
 - `@ExampleObject`
+
+## ── 🔐 Autenticación
+
+La API usa Spring Security con JWT para proteger los endpoints de negocio.
+
+El login se realiza con un veterinario registrado en la base de datos:
+
+```text
+POST /auth/login
+```
+
+Body:
+
+```json
+{
+  "email": "julio.gonzalez@veterinaria.com",
+  "contrasena": "1234"
+}
+```
+
+Respuesta:
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9..."
+}
+```
+
+Las contrasenas no se guardan en texto plano. En la tabla `veterinarios`, el campo `contrasena` almacena un hash BCrypt.
+
+Despues de iniciar sesion, copia el token y pegalo en Swagger desde el boton **Authorize** con el formato:
+
+```text
+Bearer TU_TOKEN
+```
+
+Rutas publicas:
+
+```text
+/auth/**
+/swagger-ui/**
+/swagger-ui.html
+/v3/api-docs/**
+```
+
+Todas las demas rutas requieren token JWT.
+
+El filtro `JwtAuthenticationFilter` revisa cada peticion, lee el header `Authorization`, valida el token y registra al veterinario autenticado en Spring Security.
 
 ## ── 📌 Endpoints principales
 
@@ -305,6 +358,7 @@ Ejemplo para crear un veterinario:
   "nombre": "Eduardo",
   "apellido": "Flores",
   "numLicencia": "1093658",
+  "email": "veterinario@mail.com",
   "especialidad": "Medicina Felina"
 }
 ```

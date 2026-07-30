@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition(
         info = @Info(title = "Veterinaria API", version = "1.0"),
         tags = {
-                @Tag(name = "01 - Auth", description = "Manage veterinarian authentication"),
+                @Tag(name = "Auth", description = "Manage veterinarian authentication"),
                 @Tag(name = "Appointment", description = "Manage appointments in the veterinary clinic"),
                 @Tag(name = "Owner", description = "Manage pet owners in the veterinary clinic"),
                 @Tag(name = "Pet", description = "Manage pets in the veterinary clinic"),
