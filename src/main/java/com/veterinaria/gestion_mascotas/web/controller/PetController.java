@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pet")
+@CrossOrigin(origins = "*")
 @Tag(name = "Pet", description = "Manage pets in the veterinary clinic")
 @SecurityRequirement(name = "bearerAuth")
 public class PetController {
