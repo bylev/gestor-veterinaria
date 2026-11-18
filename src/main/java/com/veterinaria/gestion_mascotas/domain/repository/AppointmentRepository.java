@@ -1,4 +1,4 @@
-package com.veterinaria.gestion_mascotas.domain.repository;
+    package com.veterinaria.gestion_mascotas.domain.repository;
 
 import com.veterinaria.gestion_mascotas.domain.model.Appointment;
 
