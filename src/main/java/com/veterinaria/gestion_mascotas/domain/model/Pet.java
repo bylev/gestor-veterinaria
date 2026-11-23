@@ -9,6 +9,7 @@ public class Pet {
     private String sexo;
     private float peso;
     private int edad;
+    private PetOwner owner;
 
     public Integer getMascotaId() {
         return mascotaId;
@@ -72,5 +73,13 @@ public class Pet {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public PetOwner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(PetOwner owner) {
+        this.owner = owner;
     }
 }
