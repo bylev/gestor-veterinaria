@@ -17,11 +17,13 @@ public interface PetMapper {
     @Mappings({
             @Mapping(source = "idMascota", target = "mascotaId"),
             @Mapping(source = "tutor.idTutor", target = "ownerId"),
-            @Mapping(source = "tutor", target = "owner")
+            @Mapping(source = "tutor", target = "owner"),
+            @Mapping(source = "imageUrl", target = "imageUrl")
     })
     Pet toPet(Mascota mascota);
 
     List<Pet> toPets(List<Mascota> mascotas);
+
 
     // Datos del dueño que viajan dentro de cada mascota
     @Mapping(source = "idTutor", target = "ownerId")

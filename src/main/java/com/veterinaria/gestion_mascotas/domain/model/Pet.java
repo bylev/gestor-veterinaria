@@ -10,6 +10,7 @@ public class Pet {
     private float peso;
     private int edad;
     private PetOwner owner;
+    private String imageUrl;
 
     public Integer getMascotaId() {
         return mascotaId;
@@ -81,5 +82,13 @@ public class Pet {
 
     public void setOwner(PetOwner owner) {
         this.owner = owner;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

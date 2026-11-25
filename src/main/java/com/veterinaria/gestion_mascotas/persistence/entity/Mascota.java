@@ -21,6 +21,9 @@ public class Mascota {
     private float peso;
     private int edad;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @ManyToOne
     @JoinColumn(name = "id_tutor")
     private Tutor tutor;
@@ -92,5 +95,21 @@ public class Mascota {
 
     public void setTutor(Tutor tutor) {
         this.tutor = tutor;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public List<Cita> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<Cita> citas) {
+        this.citas = citas;
     }
 }
